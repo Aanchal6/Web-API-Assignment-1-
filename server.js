@@ -5,11 +5,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json()); // Middleware to parse JSON request bodies
 
 app.post('/echo', (req, res) => {
-    const receivedText = req.body.text;
-    if (!receivedText) {
-        return res.status(400).json({ error: "No text provided" });
-    }
-    res.json({ echo: receivedText });
+    res.send(req.body);
 });
 
 app.listen(PORT, () => {
